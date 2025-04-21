@@ -21,7 +21,7 @@ user = os.environ['USER']
 password = os.environ['PASSWORD']
 db_name = os.environ['DB_NAME']
 port = os.environ["PORT"]
-db_url = os.environ["DB_URL"]
+async_db_url = os.environ["DB_URL"]
 
 dp = Dispatcher()
 router = Router()

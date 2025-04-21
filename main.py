@@ -1,6 +1,7 @@
 import logging
 import asyncio
 
+from app.infrastructure.bd.session_to_postgres import AsyncDatabase
 from app.interfaces.telegram.start.commands.base_command import day_card
 from app.core import logging_settings
 from aiogram.filters.command import Command
@@ -16,6 +17,7 @@ async def cmd_day_card(message: types.Message, state: FSMContext):
 
 
 async def main():
+    AsyncDatabase.init_engine()
     await dp.start_polling(bot_engine, allowed_updates=dp.resolve_used_update_types())
 
 if __name__ == "__main__":
