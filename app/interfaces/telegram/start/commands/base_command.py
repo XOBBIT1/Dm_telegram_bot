@@ -3,9 +3,11 @@ from aiogram.fsm.context import FSMContext
 
 from app.interfaces.states.user_states import UserState
 from app.interfaces.telegram.start.keyboards.start_keyboard import keyboard_start
+from app.services.user_services import create_user_service
 
 
 async def day_card(message: types.Message, state: FSMContext):
+    await create_user_service(message)
     await message.answer(
         f"Привет, <b>{message.from_user.first_name}</b>! 👋\n"
         "Голоден? Или просто хочешь вкусненького? 😋\n\n"
